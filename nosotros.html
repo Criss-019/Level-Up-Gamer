@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos | Level-Up Gamer</title>
+
+  <!-- BOOTSTRAP 5.3.8 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-gamer sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/Logo.png" alt="Level-Up Gamer Logo">
+        <span class="brand-font fs-4 text-light">LEVEL-UP <span class="text-neon">GAMER</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog Gamer</a></li>
+          <li class="nav-item"><a class="nav-link active" href="nosotros.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <a href="carrito.html" class="btn btn-outline-neon me-3 position-relative">
+          <i class="bi bi-cart3 fs-5"></i>
+          <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge cart-badge">0</span>
+        </a>
+
+        <div id="nav-auth-container"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO DE QUIÉNES SOMOS -->
+  <main class="container my-5">
+    
+    <!-- ENCABEZADO Y SOBRE LA EMPRESA -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6">
+        <h1 class="brand-font text-neon mb-3">SOBRE LEVEL-UP GAMER</h1>
+        <p class="fs-5 text-light">Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los entusiastas de los videojuegos en Chile.</p>
+        <p class="text-muted">Lanzada hace dos años como respuesta a la creciente demanda durante la pandemia, Level-Up Gamer ofrece una amplia gama de productos para gamers, desde consolas y accesorios hasta computadores y sillas especializadas. Aunque no cuenta con una ubicación física, realiza despachos a todo el país.</p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="img/Logo.png" alt="Level Up Community" class="img-fluid p-3 border border-primary rounded-circle" style="max-height: 280px; background: rgba(30,144,255,0.1);">
+      </div>
+    </div>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card card-gamer p-4 h-100 border-start border-4 border-info">
+          <h3 class="brand-font text-electric mb-3"><i class="bi bi-bullseye"></i> Nuestra Misión</h3>
+          <p class="text-light fs-6">Proporcionar productos de alta calidad para gamers en todo Chile, ofreciendo una experiencia de compra única y personalizada, con un enfoque en la satisfacción del cliente y el crecimiento de la comunidad gamer.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card card-gamer p-4 h-100 border-start border-4 border-success">
+          <h3 class="brand-font text-neon mb-3"><i class="bi bi-eye"></i> Nuestra Visión</h3>
+          <p class="text-light fs-6">Ser la tienda online líder en productos para gamers en Chile, reconocida por su innovación, servicio al cliente excepcional, y un programa de fidelización basado en gamificación que recompense a nuestros clientes más fieles.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE IMPACTO COMUNITARIO -->
+    <section class="card card-gamer p-4 mb-5 text-center">
+      <h3 class="brand-font text-electric mb-3"><i class="bi bi-controller"></i> Impacto Comunitario y Eventos</h3>
+      <p class="text-light max-w-75 mx-auto">En Level-Up Gamer apoyamos activamente a la comunidad de videojuegos en Chile patrocinando torneos locales, eventos E-Sports y ferias tecnológicas donde nuestros usuarios pueden ganar <strong>Puntos LevelUp</strong> para canjear por productos.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer-gamer">
+    <div class="container text-center small text-muted">
+      Level-Up Gamer &copy; 2026 - Quiénes Somos
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>

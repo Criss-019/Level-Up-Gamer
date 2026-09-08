@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Productos | Administración</title>
+
+  <!-- BOOTSTRAP 5.3.8 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-primary px-3">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="../img/Logo.png" alt="Logo" style="height: 35px;">
+        <span class="brand-font fs-5 text-light">PANEL <span class="text-neon">ADMINISTRATIVO</span></span>
+      </a>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <a href="../index.html" class="btn btn-outline-light btn-sm"><i class="bi bi-shop"></i> Ir a la Tienda</a>
+        <button onclick="cerrarSesion()" class="btn btn-outline-danger btn-sm">Cerrar Sesión</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="admin-wrapper">
+    
+    <!-- MENÚ LATERAL VERTICAL -->
+    <aside class="admin-sidebar">
+      <h6 class="brand-font text-muted mb-3 px-2">MENÚ PRINCIPAL</h6>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="productos.html">
+            <i class="bi bi-box-seam"></i> Productos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="usuarios.html">
+            <i class="bi bi-people"></i> Usuarios
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="respaldos.html">
+            <i class="bi bi-database-down"></i> Respaldos
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="admin-content">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="brand-font text-light mb-0"><i class="bi bi-box-seam text-neon"></i> Gestión de <span class="text-neon">Productos</span></h2>
+        
+        <!-- Botón para Abrir Modal de Nuevo Producto -->
+        <button onclick="prepararNuevoProducto()" class="btn btn-neon" data-bs-toggle="modal" data-bs-target="#modalProducto">
+          <i class="bi bi-plus-circle-fill me-1"></i> Nuevo Producto
+        </button>
+      </div>
+
+      <!-- TABLA DE PRODUCTOS REGISTRADOS -->
+      <div class="card card-gamer p-3">
+        <div class="table-responsive">
+          <table class="table table-gamer table-hover">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-admin-productos">
+              <!-- Renderizado dinámicamente con admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ! MODAL DE CREACIÓN / EDICIÓN DE PRODUCTO CON VALIDACIONES -->
+  <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-gamer">
+        <div class="modal-header modal-header-gamer">
+          <h5 class="modal-title brand-font text-neon" id="modalProductoLabel">Nuevo Producto</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <form id="formProductoAdmin" onsubmit="guardarProductoAdmin(event)" novalidate>
+          <div class="modal-body">
+            <div class="row g-3">
+              
+              <!-- Código del producto -->
+              <div class="col-md-6">
+                <label for="txtProdCodigo" class="form-label text-light">Código Producto</label>
+                <input type="text" id="txtProdCodigo" class="form-control form-control-gamer" placeholder="Ej: JM001">
+                <div id="errProdCodigo" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Nombre del producto -->
+              <div class="col-md-6">
+                <label for="txtProdNombre" class="form-label text-light">Nombre del Producto</label>
+                <input type="text" id="txtProdNombre" class="form-control form-control-gamer" placeholder="Ej: PlayStation 5" maxlength="100">
+                <div id="errProdNombre" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Categorías de productos -->
+              <div class="col-md-6">
+                <label for="cboProdCategoria" class="form-label text-light">Categoría</label>
+                <select id="cboProdCategoria" class="form-select form-select-gamer">
+                  <option value="">-- Seleccionar Categoría --</option>
+                  <option value="Juegos de Mesa">Juegos de Mesa</option>
+                  <option value="Accesorios">Accesorios</option>
+                  <option value="Consolas">Consolas</option>
+                  <option value="Computadores Gamers">Computadores Gamers</option>
+                  <option value="Sillas Gamers">Sillas Gamers</option>
+                  <option value="Mouse">Mouse</option>
+                  <option value="Mousepad">Mousepad</option>
+                  <option value="Poleras Personalizadas">Poleras Personalizadas</option>
+                  <option value="Polerones Gamers Personalizados">Polerones Gamers</option>
+                  <option value="Servicio Técnico">Servicio Técnico</option>
+                </select>
+                <div id="errProdCategoria" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Precio -->
+              <div class="col-md-6">
+                <label for="numProdPrecio" class="form-label text-light">Precio (CLP)</label>
+                <input type="number" id="numProdPrecio" class="form-control form-control-gamer" min="0" step="100" placeholder="Ej: 29990">
+                <div id="errProdPrecio" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Stock -->
+              <div class="col-md-6">
+                <label for="numProdStock" class="form-label text-light">Stock en Inventario</label>
+                <input type="number" id="numProdStock" class="form-control form-control-gamer" min="0" step="1" placeholder="Ej: 10">
+                <div id="errProdStock" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Stock Crítico - Opcional -->
+              <div class="col-md-6">
+                <label for="numProdStockCritico" class="form-label text-light">Stock Crítico (Alerta)</label>
+                <input type="number" id="numProdStockCritico" class="form-control form-control-gamer" min="0" step="1" placeholder="Ej: 3">
+              </div>
+
+              <!-- Descripción - Opcional -->
+              <div class="col-md-12">
+                <label for="txtProdDescripcion" class="form-label text-light">Descripción del Producto</label>
+                <textarea id="txtProdDescripcion" class="form-control form-control-gamer" rows="3" placeholder="Descripción opcional (máx 500 caracteres)..." maxlength="500"></textarea>
+                <div id="errProdDescripcion" class="invalid-feedback-custom"></div>
+              </div>
+
+              <!-- Ruta o URL de Imagen (Opcional, por defecto img/Logo.png) -->
+              <div class="col-md-12">
+                <label for="txtProdImagen" class="form-label text-light">Ruta de Imagen (Opcional)</label>
+                <input type="text" id="txtProdImagen" class="form-control form-control-gamer" placeholder="img/Logo.png">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer-gamer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-neon">Guardar Producto</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/productos.js"></script>
+  <script src="../js/admin.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // ! Protección de la vista de administrador
+      protegerRutaAdministrador();
+      renderizarTablaProductosAdmin();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Soporte | Level-Up Gamer</title>
+
+  <!-- BOOTSTRAP 5.3.8 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-gamer sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/Logo.png" alt="Level-Up Gamer Logo">
+        <span class="brand-font fs-4 text-light">LEVEL-UP <span class="text-neon">GAMER</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog Gamer</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <a href="carrito.html" class="btn btn-outline-neon me-3 position-relative">
+          <i class="bi bi-cart3 fs-5"></i>
+          <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge cart-badge">0</span>
+        </a>
+
+        <div id="nav-auth-container"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO DE CONTACTO -->
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-7">
+        <div class="card card-gamer p-4 shadow-lg">
+          
+          <!-- Logo y Título -->
+          <div class="text-center mb-4">
+            <img src="img/Logo.png" alt="Logo Empresa" style="max-height: 70px;" class="mb-2">
+            <h3 class="brand-font text-neon">FORMULARIO DE CONTACTO</h3>
+            <p class="text-muted small">¿Tienes dudas o consultas? Escríbenos y te responderemos a la brevedad.</p>
+          </div>
+
+          <!-- FORMULARIO DE CONTACTO CON VALIDACIONES JS -->
+          <form id="formContacto" onsubmit="validarContacto(event)" novalidate>
+            
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label for="txtNombreContacto" class="form-label text-light">Nombre Completo</label>
+              <input type="text" id="txtNombreContacto" class="form-control form-control-gamer" placeholder="Tu nombre y apellidos" maxlength="100">
+              <div id="errNombreContacto" class="invalid-feedback-custom"></div>
+            </div>
+
+            <!-- Correo -->
+            <div class="mb-3">
+              <label for="txtCorreoContacto" class="form-label text-light">Correo Electrónico</label>
+              <input type="email" id="txtCorreoContacto" class="form-control form-control-gamer" placeholder="ejemplo@duoc.cl">
+              <div id="errCorreoContacto" class="invalid-feedback-custom"></div>
+            </div>
+
+            <!-- Comentario / Mensaje -->
+            <div class="mb-4">
+              <label for="txtComentarioContacto" class="form-label text-light">Mensaje o Comentario</label>
+              <textarea id="txtComentarioContacto" class="form-control form-control-gamer" rows="5" placeholder="Escribe tu mensaje aquí (máximo 500 caracteres)..." maxlength="500"></textarea>
+              <div id="errComentarioContacto" class="invalid-feedback-custom"></div>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" class="btn btn-neon w-100 py-2 brand-font fs-6">
+              <i class="bi bi-send-fill me-2"></i> ENVIAR MENSAJE
+            </button>
+          </form>
+
+          <!-- Opción de Chat WhatsApp en vivo -->
+          <div class="text-center mt-4 border-top border-secondary pt-3">
+            <p class="text-muted small mb-2">¿Prefieres atención inmediata para Soporte Técnico?</p>
+            <a href="https://wa.me/56912345678" target="_blank" class="btn btn-outline-success btn-sm px-4">
+              <i class="bi bi-whatsapp me-2"></i> Chatear por WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-gamer">
+    <div class="container text-center small text-muted">
+      Level-Up Gamer &copy; 2026 - Contacto
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+# Archivos de sistema operativo (Windows / macOS)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editores de código e IDEs (VS Code, Sublime Text, WebStorm)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Archivos temporales y de registro (Logs)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias
+node_modules/
+dist/
+build/
+
+# Variables de entorno y credenciales (información sensible)
+.env
+.env.local
+.env.development
+.env.test
+.env.production

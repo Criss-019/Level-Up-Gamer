@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Producto | Level-Up Gamer</title>
+
+  <!-- BOOTSTRAP 5.3.8 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-gamer sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/Logo.png" alt="Level-Up Gamer Logo">
+        <span class="brand-font fs-4 text-light">LEVEL-UP <span class="text-neon">GAMER</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog Gamer</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <a href="carrito.html" class="btn btn-outline-neon me-3 position-relative">
+          <i class="bi bi-cart3 fs-5"></i>
+          <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge cart-badge">0</span>
+        </a>
+
+        <div id="nav-auth-container"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO DEL DETALLE -->
+  <main class="container my-4" id="detalle-container">
+    
+    <!-- Miga de pan (barra de navegación secundaria) -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-neon">Home</a></li>
+        <li class="breadcrumb-item"><a href="productos.html" class="text-neon">Productos</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page" id="det-nombre-breadcrumb">Detalle</li>
+      </ol>
+    </nav>
+
+    <!-- CARD PRINCIPAL DEL PRODUCTO -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-5">
+        <div class="detalle-img-box">
+          <!-- Imagen del producto -->
+          <img id="det-img" src="img/Logo.png" alt="Producto Gamer" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-7">
+        <span class="badge bg-secondary mb-2" id="det-categoria">Categoría</span>
+        <h2 class="brand-font text-light" id="det-nombre">Cargando Nombre...</h2>
+        <small class="text-muted d-block mb-3" id="det-codigo">Código: ---</small>
+        <!-- Precio del producto -->
+        <div class="h3 precio-tag mb-3" id="det-precio">$0</div>
+        
+        <p class="text-light fs-6 mb-4" id="det-descripcion">Descripción del producto...</p>
+        
+        <div class="mb-4">
+          <span class="text-muted">Stock Disponible: </span>
+          <!-- Unidades -->
+          <strong class="text-neon" id="det-stock">0</strong> unidades
+        </div>
+
+        <!-- SELECCIÓN DE CANTIDAD Y BOTÓN DE COMPRA -->
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <label for="numCantidad" class="text-light">Cantidad:</label>
+          <!-- Cantidades lado derecho-->
+          <input type="number" id="numCantidad" class="form-control form-control-gamer" value="1" min="1" max="10" style="width: 80px;">
+          <button id="btn-add-cart-detail" class="btn btn-neon px-4">
+            <i class="bi bi-cart-plus-fill me-2"></i> Añadir al Carrito
+          </button>
+        </div>
+
+        <!-- COMPARTIR EN REDES SOCIALES -->
+        <div class="border-top border-secondary pt-3">
+          <span class="text-muted me-3">Compartir producto:</span>
+          <button onclick="alert('Enlace copiado al portapapeles para compartir en redes sociales!');" class="btn btn-outline-light btn-sm me-2">
+            <i class="bi bi-share"></i> Compartir
+          </button>
+          <!-- Red social -->
+          <a href="https://twitter.com/intent/tweet?text=Mira%20este%20producto%20en%20Level-Up%20Gamer" target="_blank" class="btn btn-outline-electric btn-sm me-2">
+            <i class="bi bi-twitter-x"></i> Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE RESEÑAS Y COMENTARIOS -->
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="brand-font text-electric mb-4"><i class="bi bi-chat-left-text"></i> Reseñas de Clientes</h4>
+        
+        <div id="lista-comentarios" class="mb-4">
+        </div>
+
+        <!-- FORMULARIO PARA INGRESAR NUEVO COMENTARIO CON VALIDACIÓN JS -->
+        <div class="card card-gamer p-4">
+          <h5 class="brand-font text-neon mb-3">Dejar una Reseña</h5>
+          <form id="formComentario" onsubmit="agregarComentarioProducto(event)">
+            <div class="mb-3">
+              <label for="cboCalificacion" class="form-label text-light">Calificación</label>
+              <select id="cboCalificacion" class="form-select form-select-gamer">
+                <option value="5">★★★★★ (5/5) Excelente</option>
+                <option value="4">★★★★☆ (4/5) Muy bueno</option>
+                <option value="3">★★★☆☆ (3/5) Regular</option>
+                <option value="2">★★☆☆☆ (2/5) Malo</option>
+                <option value="1">★☆☆☆☆ (1/5) Pésimo</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="txtNuevoComentario" class="form-label text-light">Tu Comentario</label>
+              <textarea id="txtNuevoComentario" class="form-control form-control-gamer" rows="3" placeholder="Escribe tu opinión sobre este producto (máx 500 caracteres)..."></textarea>
+              <div id="errNuevoComentario" class="invalid-feedback-custom"></div>
+            </div>
+            <button type="submit" class="btn btn-electric">Publicar Reseña</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-gamer">
+    <div class="container text-center small text-muted">
+      Level-Up Gamer &copy; 2026
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      cargarDetalleProducto();
+    });
+  </script>
+</body>
+</html>
