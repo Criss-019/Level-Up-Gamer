@@ -1,0 +1,210 @@
+/* 
+  ===================================================================
+  LEVEL-UP GAMER - HOJA DE ESTILOS PRINCIPAL (styles.css)
+  Estilos globales, variables de tema neon gamer y tipografía.
+  ===================================================================
+*/
+
+/* ! Importamos fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ! DEFINICIÓN DE VARIABLES DE COLOR */
+:root {
+  --bg-principal: #0a0a0c;      /* Fondo principal muy oscuro gamer */
+  --bg-card: #121319;           /* Fondo para tarjetas y módulos */
+  --bg-nav: #0f1015;            /* Fondo para barra de navegación */
+  --azul-electrico: #1E90FF;    /* Color de acento primario: Azul Eléctrico */
+  --verde-neon: #39FF14;        /* Color de acento secundario: Verde Neón */
+  --morado-neon: #9d4edd;       /* Color complementario gamer */
+  --rojo-alerta: #ff0055;        /* Color de error y stock crítico */
+  --texto-blanco: #FFFFFF;      /* Texto principal */
+  --texto-gris: #D3D3D3;        /* Texto secundario */
+  --borde-neon: 0 0 10px rgba(30, 144, 255, 0.4);
+  --borde-verde: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+
+/* ! ESTILOS BASE DEL CUERPO Y FUENTES */
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-blanco);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tipografía para Encabezados utilizando Orbitron */
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ! BARRA DE NAVEGACIÓN PRINCIPAL */
+.navbar-gamer {
+  background-color: var(--bg-nav) !important;
+  border-bottom: 2px solid var(--azul-electrico);
+  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.25);
+}
+
+.navbar-brand img {
+  height: 45px;
+  filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: var(--texto-gris) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0 4px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--verde-neon) !important;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+}
+
+/* ! BOTONES PERSONALIZADOS CON EFECTOS NEÓN */
+.btn-electric {
+  background-color: var(--azul-electrico);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-electric:hover {
+  background-color: #0077e6;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(30, 144, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.btn-neon {
+  background-color: var(--verde-neon);
+  color: #000000;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  background-color: #2ce00c;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.9);
+  transform: translateY(-2px);
+}
+
+.btn-outline-electric {
+  background: transparent;
+  color: var(--azul-electrico);
+  border: 2px solid var(--azul-electrico);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-electric:hover {
+  background-color: var(--azul-electrico);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(30, 144, 255, 0.6);
+}
+
+.btn-outline-neon {
+  background: transparent;
+  color: var(--verde-neon);
+  border: 2px solid var(--verde-neon);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-neon:hover {
+  background-color: var(--verde-neon);
+  color: #000000;
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.6);
+}
+
+/* ! TARJETAS CON BORDES GLOW */
+.card-gamer {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  border-radius: 12px;
+  color: var(--texto-blanco);
+  transition: all 0.3s ease;
+}
+
+.card-gamer:hover {
+  border-color: var(--verde-neon);
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+  transform: translateY(-4px);
+}
+
+/* ! MENSAJES Y VALIDACIONES VISUALES EN FORMULARIOS */
+.form-control-gamer, .form-select-gamer {
+  background-color: #171922 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--texto-blanco) !important;
+  border-radius: 8px;
+}
+
+.form-control-gamer:focus, .form-select-gamer:focus {
+  border-color: var(--azul-electrico) !important;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.6) !important;
+}
+
+/* Mensajes de error personalizados en rojo Better Comments style */
+.invalid-feedback-custom {
+  color: var(--rojo-alerta);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+  font-weight: 500;
+}
+
+.is-invalid-gamer {
+  border-color: var(--rojo-alerta) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 85, 0.5) !important;
+}
+
+/* ! FOOTER */
+.footer-gamer {
+  background-color: #08080a;
+  border-top: 2px solid var(--azul-electrico);
+  color: var(--texto-gris);
+  margin-top: auto;
+  padding: 2.5rem 0 1.5rem 0;
+}
+
+.footer-gamer a {
+  color: var(--texto-gris);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-gamer a:hover {
+  color: var(--verde-neon);
+}
+
+/* ! INSIGNIA DEL CARRITO EN HEADER */
+.cart-badge {
+  background-color: var(--verde-neon);
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  padding: 2px 7px;
+}
+
+/* Badges personalizados */
+.badge-duoc {
+  background-color: var(--verde-neon);
+  color: #000000;
+  font-weight: bold;
+}
+
+.text-muted { color: #D3D3D3 !important; }
